@@ -40,19 +40,19 @@ client.on("message", message => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Bu bot zaten uptime ediliyor.**")
     
     let yardım = new Discord.RichEmbed()
-        .setAuthor(client.user.username, client.user.avatarURL)
+        .setAuthor(client.user.username)
         .setColor(0x6A3DB8)
         .setDescription("**✅ Başarılı! Projeniz artık 7/24!**")
-        .setFooter(`© ${client.user.username}`, client.user.avatarURL)
+        .setFooter(`© ${client.user.username}`)
         .setTimestamp()
      message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
     let yardım = new Discord.RichEmbed()
-        .setAuthor(client.user.username, client.user.avatarURL)
+        .setAuthor(client.user.username)
         .setColor(0x6A3DB8)
         .setDescription("⛔ **Hata! Sadece düzgün url'ler ekleyebilirsiniz.**")
-        .setFooter(`© ${client.user.username}`, client.user.avatarURL)
+        .setFooter(`© ${client.user.username}`)
         .setTimestamp()
    return message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
   })
