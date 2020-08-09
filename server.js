@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db"); 
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("Token");
+client.login("NzQxOTcxMjE0OTM4OTMxMjQx.Xy_Uig.60lcADzJ1OZ_x9tQmqtD-U-0N78");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u!yardım | GamerWolf Kanalına Abone Olmayı Unutmayın !!!`)
+  client.user.setActivity(`u!yardım | UptimeBOT`)
   console.log(`Logined`)
 })
 
@@ -34,7 +34,7 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "u!uptime") {
+  if(spl[0] == "up!uptime") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Zaten Eklenmiş !!!**")
@@ -63,7 +63,7 @@ client.on("message", message => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "u!botsay") {
+  if(spl[0] == "up!botsay") {
   var link = spl[1]
  message.channel.send(`**${db.get("linkler").length} / 1000**`)
 }})
@@ -75,21 +75,21 @@ const Discord = require('discord.js');
 client.on("message", message => {
   if(message.author.bot) return;
     var spl = message.content.split(" ");
-  if(spl[0] == "u!yardım") {
+  if(spl[0] == "up!yardım") {
 let embed = new Discord.RichEmbed()
 .setColor('#070706')
-.addField(`Discord Uptime Bot Yardım Sistemi`, `Discord Botlarınız Benim Sayemde 7/24`)
+.addField(`Discord UptimeBOT Yardım Sistemi`, `Discord Botlarınız Artık 7/24!`)
 .setDescription(`**Komutlar**
 
- 🌙 **u!yardım**  | Discord Uptime Botunun Yardım Sistemini Gösterir  (Burası)
+ 🌙 **u!yardım** : Botun yardım menüsünü açar.
 
- 🔋 **u!uptime**  | Botunuzu 7/24 Aktif Tutmak İçin Kullanılan Komut
+ 🔋 **u!uptime <link>** : Eklediğiniz proje linkini 7/24 açık yapar.
 
- ⚡ **u!botsay** | Sistemde Kaç Bot Olduğuna Bakar
+ ⚡ **u!botsay** : Bot'umuzla uptime olan proje sayısını gösterir.
 
 `)
-.setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`Uptime Bot | Kodlayan Emir Bolat , Editleyen GamerWolf.`, client.user.avatarURL)
+.setAuthor(`Botu kullandığınız için teşekkürler.`, client.user.avatarURL)
+.setFooter(`UptimeBOT`)
 return message.channel.send(embed);
     }
  
