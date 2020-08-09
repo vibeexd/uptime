@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u!yardım | UptimeBOT`)
+  client.user.setActivity(`up!yardım`)
   console.log(`Logined`)
 })
 
@@ -37,12 +37,12 @@ client.on("message", message => {
   if(spl[0] == "up!uptime") {
   var link = spl[1]
   fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Zaten Eklenmiş !!!**")
+    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Bu bot zaten uptime ediliyor.**")
     
     let yardım = new Discord.RichEmbed()
         .setAuthor(client.user.username, client.user.avatarURL)
         .setColor(0x6A3DB8)
-        .setDescription("**✅ Başarılı Bir Şekilde 7/24 Yapıldı !!!**")
+        .setDescription("**✅ Başarılı! Projeniz artık 7/24!**")
         .setFooter(`© ${client.user.username}`, client.user.avatarURL)
         .setTimestamp()
      message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
@@ -51,7 +51,7 @@ client.on("message", message => {
     let yardım = new Discord.RichEmbed()
         .setAuthor(client.user.username, client.user.avatarURL)
         .setColor(0x6A3DB8)
-        .setDescription("⛔ **Error Yalnızca Mutlak URL'ler Desteklenir.**")
+        .setDescription("⛔ **Hata! Sadece düzgün url'ler ekleyebilirsiniz.**")
         .setFooter(`© ${client.user.username}`, client.user.avatarURL)
         .setTimestamp()
    return message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
@@ -78,17 +78,17 @@ client.on("message", message => {
   if(spl[0] == "up!yardım") {
 let embed = new Discord.RichEmbed()
 .setColor('#070706')
-.addField(`Discord UptimeBOT Yardım Sistemi`, `Discord Botlarınız Artık 7/24!`)
+.addField(`Botu Davet Etmek için Tıkla! = https://bit.ly/destinybot`, `Botu Sunucunuza Eklerseniz Büyük Destek Olursunuz!`)
 .setDescription(`**Komutlar**
 
- 🌙 **u!yardım** : Botun yardım menüsünü açar.
+ 🌙 **up!yardım** : Botun yardım menüsünü açar.
 
- 🔋 **u!uptime <link>** : Eklediğiniz proje linkini 7/24 açık yapar.
+ 🔋 **up!uptime <link>** : Eklediğiniz proje linkini 7/24 açık yapar.
 
- ⚡ **u!botsay** : Bot'umuzla uptime olan proje sayısını gösterir.
+ ⚡ **up!botsay** : Bot'umuzla uptime olan proje sayısını gösterir.
 
 `)
-.setAuthor(`Botu kullandığınız için teşekkürler.`, client.user.avatarURL)
+.setAuthor(`UptimeBOT | Yardım Menüsü`, client.user.avatarURL)
 .setFooter(`UptimeBOT`)
 return message.channel.send(embed);
     }
