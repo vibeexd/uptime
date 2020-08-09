@@ -99,7 +99,5 @@ return message.channel.send(embed);
   const log = message => {
   console.log(`${message}`);
 }
-const Discord = require('discord.js');
-    }
   
   
