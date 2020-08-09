@@ -78,8 +78,8 @@ client.on("message", message => {
   if(spl[0] == "up!yardım") {
 let embed = new Discord.RichEmbed()
 .setColor('#070706')
-.addField(`Botu Davet Etmek için Tıkla! = https://bit.ly/destinybot`, `Botu Sunucunuza Eklerseniz Büyük Destek Olursunuz!`)
-.setDescription(`**Komutlar**
+.addField(`Botu Davet Etmek için Tıkla! = https://bit.ly/UptimeBOT`, `Botu Sunucunuza Eklerseniz Büyük Destek Olursunuz!`)
+.setDescription(`**Uptime komudunu kullandıktan sonra sisteme eklenmesi için 3-5 dk bekleyin.**
 
  🌙 **up!yardım** : Botun yardım menüsünü açar.
 
@@ -90,6 +90,7 @@ let embed = new Discord.RichEmbed()
 `)
 .setAuthor(`UptimeBOT | Yardım Menüsü`, client.user.avatarURL)
 .setFooter(`UptimeBOT`)
+.setImage(`https://cdn.discordapp.com/attachments/741014134576906332/741978820080435260/Adsz.png`)
 return message.channel.send(embed);
     }
  
