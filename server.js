@@ -87,17 +87,27 @@ let embed = new Discord.RichEmbed()
 
  ⚡ **up!botsay** : Bot'umuzla uptime olan proje sayısını gösterir.
 
+ 🔮 **up!botbilgi** : Bot'un istastistik verilerini gösterir.
+
 `)
 .setAuthor(`UptimeBOT | Yardım Menüsü`, client.user.avatarURL)
 .setFooter(`UptimeBOT | Botun Kodlayıcıları = Umut#1337 ve 'YamaND__#0045`)
 .setImage(`https://cdn.discordapp.com/attachments/741014134576906332/741980222101913600/unknown.png`)
 return message.channel.send(embed);
     }
- 
-})
+  
+  })
   const log = message => {
   console.log(`${message}`);
 }
-
   
+client.on("message", message => {
+  if(message.author.bot) return;
+  var spl = message.content.split(" ");
+  if(spl[0] == "up!botbilgi") {
+  var link = spl[1]
+ message.channel.send(`***çok yakında eklenecek!***`)
+}})
+  
+
   
