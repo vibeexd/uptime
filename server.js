@@ -89,8 +89,8 @@ let embed = new Discord.RichEmbed()
 
 `)
 .setAuthor(`UptimeBOT | Yardım Menüsü`, client.user.avatarURL)
-.setFooter(`UptimeBOT`)
-.setImage(`https://cdn.discordapp.com/attachments/741014134576906332/741978820080435260/Adsz.png`)
+.setFooter(`UptimeBOT | Botun Kodlayıcıları = Umut#1337 ve 'YamaND__#0045`)
+.setImage(`https://cdn.discordapp.com/attachments/741014134576906332/741980222101913600/unknown.png`)
 return message.channel.send(embed);
     }
  
