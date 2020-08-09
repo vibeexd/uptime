@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`up!yardım`)
+  client.user.setActivity(`up!ekle | DM'den kullan!`)
   console.log(`Logined`)
 })
 
@@ -34,7 +34,7 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "up!uptime") {
+  if(spl[0] == "up!ekle") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Bu bot zaten uptime ediliyor.**")
@@ -83,7 +83,7 @@ let embed = new Discord.RichEmbed()
 
  🌙 **up!yardım** : Botun yardım menüsünü açar.
 
- 🔋 **up!uptime <link>** : Eklediğiniz proje linkini 7/24 açık yapar.
+ 🔋 **up!ekle <link>** : Eklediğiniz proje linkini 7/24 açık yapar.
 
  ⚡ **up!botsay** : Bot'umuzla uptime olan proje sayısını gösterir.
 
