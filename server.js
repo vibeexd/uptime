@@ -1,71 +1,71 @@
-require("express")().listen(1343);
+require("express")().listen(1343);//ukqzn
 
 const db = require("quick.db"); 
-const discord = require("discord.js");
-const client = new discord.Client({ disableEveryone: true });
-client.login("NzQxOTcxMjE0OTM4OTMxMjQx.Xy_Uig.60lcADzJ1OZ_x9tQmqtD-U-0N78");
+const discord = require("discord.js");//ukqzn
+const client = new discord.Client({ disableEveryone: true });//ukqzn
+client.login("TOKEN");
 const fetch = require("node-fetch");
-const fs = require('fs')
+const fs = require('fs')//ukqzn
 
 setInterval(() => {
-  var links = db.get("linkler");
+  var links = db.get("linkler");//ukqzn
   if(!links) return 
-  var linkA = links.map(c => c.url)
+  var linkA = links.map(c => c.url)//ukqzn
   linkA.forEach(link => {
     try {
       fetch(link)
     } catch(e) { console.log("" + e) };
   })
-  console.log("Başarıyla Pinglendi.")
+  console.log("Başarıyla Pinglendi.")//ukqzn
 }, 60000)
 
 client.on("ready", () => {
-if(!Array.isArray(db.get("linkler"))) {
+if(!Array.isArray(db.get("linkler"))) {//ukqzn
 db.set("linkler", [])
-}
+}//ukqzn
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`up!ekle | DM'den kullan!`)
-  console.log(`Logined`)
+  client.user.setActivity(`up!ekle | DM'den kullan!`)//ukqzn
+  console.log(`Logined`)//ukqzn
 })
 
 
 client.on("message", message => {
   if(message.author.bot) return;
-  var spl = message.content.split(" ");
+  var spl = message.content.split(" ");//ukqzn
   if(spl[0] == "up!ekle") {
-  var link = spl[1]
-  fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Bu bot zaten uptime ediliyor.**")
+  var link = spl[1]//ukqzn
+  fetch(link).then(() => {//ukqzn
+    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Bu bot zaten uptime ediliyor.**")//ukqzn
     
-    let yardım = new Discord.RichEmbed()
+    let yardım = new Discord.RichEmbed()//ukqzn
         .setAuthor(client.user.username)
         .setColor(0x6A3DB8)
-        .setDescription("**✅ Başarılı! Projeniz artık 7/24!**")
+        .setDescription("**✅ Başarılı! Projeniz artık 7/24!**")//ukqzn
         .setFooter(`© ${client.user.username}`)
         .setTimestamp()
-     message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
+     message.channel.send(yardım).then(msg => msg.delete(60000)); //ukqzn
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
-    let yardım = new Discord.RichEmbed()
+    let yardım = new Discord.RichEmbed()//ukqzn
         .setAuthor(client.user.username)
         .setColor(0x6A3DB8)
-        .setDescription("⛔ **Hata! Sadece düzgün url'ler ekleyebilirsiniz.**")
+        .setDescription("⛔ **Hata! Sadece düzgün url'ler ekleyebilirsiniz.**")//ukqzn
         .setFooter(`© ${client.user.username}`)
         .setTimestamp()
-   return message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
-  })
+   return message.channel.send(yardım).then(msg => msg.delete(60000)); //ukqzn
+  })//ukqzn
   }
 })
 
 
-client.on("message", message => {
+client.on("message", message => {//ukqzn
   if(message.author.bot) return;
-  var spl = message.content.split(" ");
-  if(spl[0] == "up!botsay") {
+  var spl = message.content.split(" ");//ukqzn
+  if(spl[0] == "up!botsay") {//ukqzn
   var link = spl[1]
- message.channel.send(`**${db.get("linkler").length} / 1000**`)
+ message.channel.send(`**${db.get("linkler").length} / 1000**`)//ukqzn
 }})
 
 
@@ -74,9 +74,9 @@ const Discord = require('discord.js');
 
 client.on("message", message => {
   if(message.author.bot) return;
-    var spl = message.content.split(" ");
+    var spl = message.content.split(" ");//ukqzn
   if(spl[0] == "up!yardım") {
-let embed = new Discord.RichEmbed()
+let embed = new Discord.RichEmbed()//ukqzn
 .setColor('#070706')
 .addField(`Botu Davet Etmek için Tıkla! = https://bit.ly/UptimeBOT`, `Botu Sunucunuza Eklerseniz Büyük Destek Olursunuz!`)
 .setDescription(`**Uptime komudunu kullandıktan sonra sisteme eklenmesi için 3-5 dk bekleyin.**
@@ -91,23 +91,25 @@ let embed = new Discord.RichEmbed()
 
 `)
 .setAuthor(`UptimeBOT | Yardım Menüsü`, client.user.avatarURL)
-.setFooter(`UptimeBOT | Botun Kodlayıcıları = Umut#1337 ve 'YamaND__#0045`)
+.setFooter(`UptimeBOT | Botun Kodlayıcıları = Umut#1337 ve 'YamaND__#0045`)//ukqzn
 .setImage(`https://cdn.discordapp.com/attachments/741014134576906332/741980222101913600/unknown.png`)
-return message.channel.send(embed);
+return message.channel.send(embed);//ukqzn
     }
   
   })
-  const log = message => {
+  const log = message => {//ukqzn
   console.log(`${message}`);
 }
   
-client.on("message", message => {
+client.on("message", message => {//ukqzn
   if(message.author.bot) return;
-  var spl = message.content.split(" ");
+  var spl = message.content.split(" ");//ukqzn
   if(spl[0] == "up!botbilgi") {
   var link = spl[1]
- message.channel.send(`***çok yakında eklenecek!***`)
+ message.channel.send(`***çok yakında eklenecek!***`)//ukqzn
 }})
+
+//coded by ukqzn
   
 
   
