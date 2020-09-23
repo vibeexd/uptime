@@ -1,71 +1,69 @@
-require("express")().listen(1343);//ukqzn
+require("express")().listen(1343);//Darwinkle
 
 const db = require("quick.db"); 
-const discord = require("discord.js");//ukqzn
-const client = new discord.Client({ disableEveryone: true });//ukqzn
+const discord = require("discord.js");//Darwinkle
+const client = new discord.Client({ disableEveryone: true });//Darwinkle
 client.login("TOKEN");
 const fetch = require("node-fetch");
-const fs = require('fs')//ukqzn
+const fs = require('fs')//Darwinkle
 
 setInterval(() => {
-  var links = db.get("linkler");//ukqzn
+  var links = db.get("linkler");//Darwinkle
   if(!links) return 
-  var linkA = links.map(c => c.url)//ukqzn
+  var linkA = links.map(c => c.url)//Darwinkle
   linkA.forEach(link => {
     try {
       fetch(link)
     } catch(e) { console.log("" + e) };
   })
-  console.log("Başarıyla Pinglendi.")//ukqzn
+  console.log("Başarıyla Pinglendi.")//Darwinkle
 }, 60000)
 
 client.on("ready", () => {
-if(!Array.isArray(db.get("linkler"))) {//ukqzn
+if(!Array.isArray(db.get("linkler"))) {//Darwinkle
 db.set("linkler", [])
 }//ukqzn
 })
 
 client.on("ready", () => {
   client.user.setActivity(`up!ekle | DM'den kullan!`)//ukqzn
-  console.log(`Logined`)//ukqzn
+  console.log(`Logined`)//Darwinkle
 })
 
 
 client.on("message", message => {
   if(message.author.bot) return;
-  var spl = message.content.split(" ");//ukqzn
+  var spl = message.content.split(" ");//Darwinkle
   if(spl[0] == "up!ekle") {
   var link = spl[1]//ukqzn
   fetch(link).then(() => {//ukqzn
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Bu bot zaten uptime ediliyor.**")//ukqzn
-    
-    let yardım = new Discord.RichEmbed()//ukqzn
+    let yardım = new Discord.RichEmbed()//Darwinkle
         .setAuthor(client.user.username)
         .setColor(0x6A3DB8)
-        .setDescription("**✅ Başarılı! Projeniz artık 7/24!**")//ukqzn
+        .setDescription("**✅ Başarılı! Projeniz artık 7/24!**")//Darwinkle
         .setFooter(`© ${client.user.username}`)
         .setTimestamp()
-     message.channel.send(yardım).then(msg => msg.delete(60000)); //ukqzn
+     message.channel.send(yardım).then(msg => msg.delete(60000)); //Darwinkle
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
     let yardım = new Discord.RichEmbed()//ukqzn
         .setAuthor(client.user.username)
         .setColor(0x6A3DB8)
-        .setDescription("⛔ **Hata! Sadece düzgün url'ler ekleyebilirsiniz.**")//ukqzn
+        .setDescription("⛔ **Hata! Sadece düzgün url'ler ekleyebilirsiniz.**")//Darwinkle
         .setFooter(`© ${client.user.username}`)
         .setTimestamp()
-   return message.channel.send(yardım).then(msg => msg.delete(60000)); //ukqzn
+   return message.channel.send(yardım).then(msg => msg.delete(60000)); //Darwinkle
   })//ukqzn
   }
 })
 
 
-client.on("message", message => {//ukqzn
+client.on("message", message => {//Darwinkle
   if(message.author.bot) return;
-  var spl = message.content.split(" ");//ukqzn
-  if(spl[0] == "up!botsay") {//ukqzn
+  var spl = message.content.split(" ");//Darwinkle
+  if(spl[0] == "up!botsay") {//Darwinkle
   var link = spl[1]
- message.channel.send(`**${db.get("linkler").length} / 1000**`)//ukqzn
+ message.channel.send(`**${db.get("linkler").length} / 1000**`)//Darwinkle
 }})
 
 
@@ -74,11 +72,11 @@ const Discord = require('discord.js');
 
 client.on("message", message => {
   if(message.author.bot) return;
-    var spl = message.content.split(" ");//ukqzn
+    var spl = message.content.split(" ");//Darwinkle
   if(spl[0] == "up!yardım") {
-let embed = new Discord.RichEmbed()//ukqzn
+let embed = new Discord.RichEmbed()//Darwinkle
 .setColor('#070706')
-.addField(`Botu Davet Etmek için Tıkla! = https://bit.ly/UptimeBOT`, `Botu Sunucunuza Eklerseniz Büyük Destek Olursunuz!`)
+.addField(`Botu Davet Etmek için Tıkla! = botun davet linkini yaz`, `Botu Sunucunuza Eklerseniz Büyük Destek Olursunuz!`)
 .setDescription(`**Uptime komudunu kullandıktan sonra sisteme eklenmesi için 3-5 dk bekleyin.**
 
  🌙 **up!yardım** : Botun yardım menüsünü açar.
@@ -87,29 +85,18 @@ let embed = new Discord.RichEmbed()//ukqzn
 
  ⚡ **up!botsay** : Bot'umuzla uptime olan proje sayısını gösterir.
 
- 🔮 **up!botbilgi** : Bot'un istastistik verilerini gösterir.
-
 `)
 .setAuthor(`UptimeBOT | Yardım Menüsü`, client.user.avatarURL)
-.setFooter(`UptimeBOT | Botun Kodlayıcıları = Umut#1337 ve 'YamaND__#0045`)//ukqzn
+.setFooter(`UptimeBOT | Botun Kodlayıcıları = Darwinkle`)//Darwinkle
 .setImage(`https://cdn.discordapp.com/attachments/741014134576906332/741980222101913600/unknown.png`)
-return message.channel.send(embed);//ukqzn
+return message.channel.send(embed);//Darwinkle
     }
   
   })
-  const log = message => {//ukqzn
+  const log = message => {//Darwinkle
   console.log(`${message}`);
 }
-  
-client.on("message", message => {//ukqzn
-  if(message.author.bot) return;
-  var spl = message.content.split(" ");//ukqzn
-  if(spl[0] == "up!botbilgi") {
-  var link = spl[1]
- message.channel.send(`***çok yakında eklenecek!***`)//ukqzn
-}})
-
-//coded by ukqzn
+//coded by Darwinkle
   
 
   
