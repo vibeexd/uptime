@@ -90,6 +90,37 @@ message.channel.send(embed)
 }
 
 })
+client.on("message", async message => {
+
+  if(!message.content.startsWith("!eval")) return;
+  if(!["675593025468235806","sahipıd"].includes(message.author.id)) return;
+  var args = message.content.split("!eval")[1]
+  if(!args) return message.channel.send(":warning: | Kod?")
+
+const code = args
+
+function clean(text) {
+if (typeof text !== 'string')
+text = require('util').inspect(text, { depth: 3 })
+text = text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203))
+return text;
+};
+
+var evalEmbed = ""
+try {
+var evaled = await clean(await eval(await code));
+if (evaled.constructor.name === 'Promise') evalEmbed = `\`\`\`\n${evaled}\n\`\`\``
+else evalEmbed = `\`\`\`js\n${evaled}\n\`\`\``
+
+if(evaled.length < 1900) { 
+message.channel.send(`\`\`\`js\n${evaled}\`\`\``);
+} else {
+var hast = await require("hastebin-gen")(evaled, { url: "https://hasteb.in" } )
+message.channel.send(hast)
+}
+} catch (err) {
+message.channel.send(`\`\`\`js\n${err}\n\`\`\``);
+}})
 const log = message => {
 console.log(`${message}`)
 }
