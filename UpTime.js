@@ -53,6 +53,7 @@ client.on("message", async message => {
   const RevengeNYKS = new Discord.RichEmbed()
   .setColor('CYAN')
   .setAuthor('Uptime BOT')
+  .setDescri
   .setThumbnail(message.author.avatarURL)
   message.channel.send(RevengeNYKS)
   }
