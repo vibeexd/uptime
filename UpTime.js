@@ -32,11 +32,21 @@ client.on("message", async message => {
   if(Split[0] == prefix+'ekle') {
   var Link = Split[1]
   fetch(Link).then(() => {
-    if(db.get('Linkler').map(Revenge => Revenge.url).includes(Link)) return message.channel.send("Such a Link is Already on My System")
+    const Revenge = new Discord.RichEmbed()
+    .setColor('RED')
+    .setDescription(`
+    **==================================**
+    **Link Sistemde Zaten Bulunuyor. ❌** 
+    ==================================
+    `)
+    .setTimestamp()
+    .setThumbnail(message.author.avatarURL)
+    if(db.get('Linkler').map(Revenge => Revenge.url).includes(Link)) return message.channel.send(Revenge)
     message.channel.send("The post was successfully added.")
     db.push("Linkler", { url: Link, owner: message.author.id})
     db.add(`Sahiplik_${message.author.id}`,1)
     db.add(`Proje`,1)
+
   }).catch(e => { message.channel.send("Error: " + e) })
   }
   if(Split[0] == "ur!say") {
