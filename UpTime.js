@@ -63,7 +63,7 @@ client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' }
 //client.user.setStatus('dnd')
 })
 
-client.on('message', message => {
+/*client.on('message', message => {
 if(message.author.bot) return;
 const args = message.content.split(' ')
 if(args[0] == prefix+'ekle') {
@@ -91,7 +91,7 @@ const yardım = new Discord.RichEmbed()
  return; message.channel.send(yardım).then(msg => msg.delete(60000)) 
 })
 }
-})
+})*/
 
 
 client.on('message', message => {
