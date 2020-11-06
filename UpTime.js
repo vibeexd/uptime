@@ -9,7 +9,7 @@ const prefix = 'lg!'
 
 setInterval(() => {
 const Linkler = db.get('Linkler')
-if(!Linkler) return;;
+if(!Linkler) return;
 const Aventadoria = Linkler.map(Revenge => Revenge.url)
 Aventadoria.forEach(Link => {
 try {
@@ -44,6 +44,7 @@ const Ekledik = new Discord.RichEmbed()
 .setDescription('**✅ Başarılı! Projeniz artık 7/24!**')
 .setFooter(`© ${client.user.username}`)
 .setTimestamp()
+.setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
 message.channel.send(Ekledik).then(msg => msg.delete(60000)) 
 db.push('Linkler', { url: Link, owner: message.author.id})
 }).catch(Error => {
