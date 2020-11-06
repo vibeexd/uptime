@@ -32,7 +32,7 @@ client.on("message", async message => {
   if(Split[0] == prefix+'ekle') {
   var Link = Split[1]
   fetch(Link).then(() => {
-    if(db.get("Linkler").map(Revenge => Revenge.url).includes(Link)) return message.channel.send("Such a Link is Already on My System")
+    if(db.get('Linkler').map(Revenge => Revenge.url).includes(Link)) return message.channel.send("Such a Link is Already on My System")
     message.channel.send("The post was successfully added.")
     db.push("Linkler", { url: Link, owner: message.author.id})
     db.add(`Sahiplik_${message.author.id}`,1)
