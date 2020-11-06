@@ -49,8 +49,12 @@ client.on("message", async message => {
 
   }).catch(e => { message.channel.send("Error: " + e) })
   }
-  if(Split[0] == "ur!say") {
-  message.channel.send(new Discord.RichEmbed().setColor('BLUE').setDescription(`${db.get(`Proje`)} Proje İçinden ${db.fetch(`Sahiplik_${message.author.id}`) || '0'} Tanesi Senin!`).setThumbnail(message.author.avatarURL))
+  if(Split[0] == prefix+'yardım') {
+  const RevengeNYKS = new Discord.RichEmbed()
+  .setColor('CYAN')
+  .setAuthor('Uptime BOT')
+  .setThumbnail(message.author.avatarURL)
+  message.channel.send(RevengeNYKS)
   }
 })
 
