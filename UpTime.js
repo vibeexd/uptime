@@ -26,10 +26,27 @@ if(!Array.isArray(db.get('Linkler'))) {
 db.set('Linkler', [])
 }
 })
+client.on("message", async message => {
+  if(message.author.bot) return;
+  var Split = message.content.split(" ")
+  if(Split[0] == prefix+'ekle') {
+  var Link = Split[1]
+  fetch(Link).then(() => {
+    if(db.get("Linkler").map(Revenge => Revenge.url).includes(Link)) return message.channel.send("Such a Link is Already on My System")
+    message.channel.send("The post was successfully added.")
+    db.push("Linkler", { url: Link, owner: message.author.id})
+    db.add(`Sahiplik_${message.author.id}`,1)
+    db.add(`Proje`,1)
+  }).catch(e => { message.channel.send("Error: " + e) })
+  }
+  if(Split[0] == "ur!say") {
+  message.channel.send(new Discord.RichEmbed().setColor('BLUE').setDescription(`${db.get(`Proje`)} Proje İçinden ${db.fetch(`Sahiplik_${message.author.id}`) || '0'} Tanesi Senin!`).setThumbnail(message.author.avatarURL))
+  }
+})
 
 client.on('ready', () => {
 client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' })
-client.user.setStatus('dnd')
+//client.user.setStatus('dnd')
 })
 
 client.on('message', message => {
@@ -39,14 +56,17 @@ if(args[0] == prefix+'ekle') {
 const Link = args[1]
 fetch(Link).then(() => {
 const Ekledik = new Discord.RichEmbed()
-.setAuthor(client.user.username)
 .setColor(0x6A3DB8)
-.setDescription('**✅ Başarılı! Projeniz artık 7/24!**')
+.setDescription(`
+==================================
+**Yazdığınız URL Başarıyla Eklendi.** ✅
+==================================
+`)
 .setFooter(`© ${client.user.username}`)
 .setTimestamp()
 .setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
 message.channel.send(Ekledik).then(msg => msg.delete(60000)) 
-db.push('Linkler', { url: Link, owner: message.author.id})
+db.push('Linkler', { url: Link, Owner: message.author.id})
 }).catch(Error => {
 const yardım = new Discord.RichEmbed()
 .setAuthor(client.user.username)
@@ -122,7 +142,8 @@ message.channel.send(hast)
 } catch (err) {
 message.channel.send(`\`\`\`js\n${err}\n\`\`\``);
 }})
-const log = message => {
+
+const Log = message => {
 console.log(`${message}`)
 }
 client.login('Njk5NjE2NTM2MjkzNTM5OTYx.XpW-rA.MlZE3IFfrdBHTmMOOagStUy80Cg')
