@@ -18,7 +18,7 @@ fetch(Link)
 console.error(e)
 }
 })
-console.log('Başarıyla Pinglendi.')
+console.log(`${client.user.username} | ${db.get('Proje') || 1} Proje Hostandı`)
 }, 60000)
 
 client.on('ready', () => {
@@ -161,4 +161,4 @@ message.channel.send(`\`\`\`js\n${err}\n\`\`\``);
 const Log = message => {
 console.log(`${message}`)
 }
-client.login('Njk5NjE2NTM2MjkzNTM5OTYx.XpW-rA.MlZE3IFfrdBHTmMOOagStUy80Cg')
+client.login('Njk5NjE2NTM2MjkzNTM5OTYx.XpW-rA.p4t6tXADxXX-gttRfhb8sKigfVY')
