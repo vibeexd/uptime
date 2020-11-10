@@ -109,12 +109,15 @@ Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsi
 **✅ » Kanal Sayısı -** __${client.channels.size}__
 **✅ » Sunucu Sayısı -** __${client.guilds.size}__
 **✅ » Kullanıcı Sayısı -** __${client.guilds.reduce((a,b) => a + b.memberCount,0).toLocaleString()}__
-**✅ » Link Sayısı (Sıfırlandı)-** __${await db.fetch('Proje') || 1}__
+**✅ » Link Sayısı (\`Sıfırlandı\`)-** __${await db.fetch('Proje') || 1}__
 **✅ » Premium Link Sayısı -** __31__
 **✅ » Aktiflik Suresi -** __${moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]")}__
-**==================================**
-  `)
+**==================================**`)
 message.channel.send(Istatistik)
+  }
+
+  if(Split[0] == prefix+'say') {
+  message.channel.send('xasdfasdwqerqwer')
   }
 
   if(Split[0] == prefix+'yardım') {
@@ -133,99 +136,6 @@ client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' }
 //client.user.setStatus('dnd')
 })
 
-/*client.on('message', message => {
-if(message.author.bot) return;
-const args = message.content.split(' ')
-if(args[0] == prefix+'ekle') {
-const Link = args[1]
-fetch(Link).then(() => {
-const Ekledik = new Discord.RichEmbed()
-.setColor(0x6A3DB8)
-.setDescription(`
-==================================
-**Yazdığınız URL Başarıyla Eklendi.** **✅
-==================================
-`)
-.setFooter(`© ${client.user.username}`)
-.setTimestamp()
-.setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
-message.channel.send(Ekledik).then(msg => msg.delete(60000)) 
-db.push('Linkler', { url: Link, Owner: message.author.id})
-}).catch(Error => {
-const yardım = new Discord.RichEmbed()
-.setAuthor(client.user.username)
-.setColor(0x6A3DB8)
-.setDescription('⛔ **Hata! Sadece düzgün urller ekleyebilirsiniz.**')
-.setFooter(`© ${client.user.username}`)
-.setTimestamp()
- return; message.channel.send(yardım).then(msg => msg.delete(60000)) 
-})
-}
-})*/
-
-
-client.on('message', message => {
-if(message.author.bot) return;
-const args = message.content.split(' ')
-if(args[0] == 'up!botsay') {
-const Link = args[1]
- message.channel.send(`**${db.get('Linkler').length} / 1000**`)
-}})
-
-client.on('message', message => {
-if(message.author.bot) return;
-const args = message.content.split(' ')
-if(args[0] == 'up!yardım') {
-const embed = new Discord.RichEmbed()
-.setColor('#070706')
-.addField(`Botu Davet Etmek için Tıkla! = botun davet Linkini yaz`, `Botu Sunucunuza Eklerseniz Büyük Destek Olursunuz!`)
-.setDescription(`**Uptime komudunu kullandıktan sonra sisteme eklenmesi için 3-5 dk bekleyin.**
-
- 🌙 **up!yardım** : Botun yardım menüsünü açar.
-
- 🔋 **up!ekle <Link>** : Eklediğiniz proje Linkini 7/24 açık yapar.
-
- ⚡ **up!botsay** : Bot'umuzla uptime olan proje sayısını gösterir.
-
-`)
-.setAuthor(`UptimeBOT | Yardım Menüsü`, client.user.avatarURL)
-.setFooter(`UptimeBOT | Botun Kodlayıcıları = Darwinkle`)
-.setImage(`https://cdn.discordapp.com/attachments/741014134576906332/741980222101913600/unknown.png`)
-message.channel.send(embed)
-}
-
-})
-client.on('message', async message => {
-
-  if(!message.content.startsWith('!eval')) return;
-  if(!['675593025468235806','sahipıd'].includes(message.author.id)) return;
-  var args = message.content.split('!eval')[1]
-  if(!args) return message.channel.send(':warning: | Kod?')
-
-const code = args
-
-function clean(text) {
-if (typeof text !== 'string')
-text = require('util').inspect(text, { depth: 3 })
-text = text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203))
-return text;
-};
-
-var evalEmbed = ''
-try {
-var evaled = await clean(await eval(await code));
-if (evaled.constructor.name === 'Promise') evalEmbed = `\`\`\`\n${evaled}\n\`\`\``
-else evalEmbed = `\`\`\`js\n${evaled}\n\`\`\``
-
-if(evaled.length < 1900) { 
-message.channel.send(`\`\`\`js\n${evaled}\`\`\``);
-} else {
-var hast = await require('hastebin-gen')(evaled, { url: 'https://hasteb.in' } )
-message.channel.send(hast)
-}
-} catch (err) {
-message.channel.send(`\`\`\`js\n${err}\n\`\`\``);
-}})
 
 const Log = message => {
 console.log(`${message}`)
