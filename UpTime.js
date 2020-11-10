@@ -29,6 +29,8 @@ db.set('Linkler', [])
 client.on("message", async message => {
   if(message.author.bot) return;
   var Split = message.content.split(" ")
+
+
   if(Split[0] == prefix+'ekle') {
   var Link = Split[1]
   fetch(Link).then(() => {
@@ -42,12 +44,29 @@ client.on("message", async message => {
     .setTimestamp()
     .setThumbnail(message.author.avatarURL)
     if(db.get('Linkler').map(Revenge => Revenge.url).includes(Link)) return message.channel.send(Revenge)
-    message.channel.send("The post was successfully added.")
+    const Emrecan = new Discord.RichEmbed()
+    .setColor('GREEN')
+    .setThumbnail(message.author.avatarURL)
+    .setDescription(`
+    **==================================**
+    **Yazdığınız URL Başarıyla Eklendi. ✅**
+    `)
+    .addField(prefix+'linkler','Komutunu Kullanarak Ekledigin Linklere Erisebilirsin')
+    .setTimestamp()
+    .setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
+    message.channel.send(Emrecan)
     db.push("Linkler", { url: Link, owner: message.author.id})
     db.add(`Sahiplik_${message.author.id}`,1)
     db.add(`Proje`,1)
 
-  }).catch(e => { message.channel.send("Error: " + e) })
+  }).catch(Hata => {
+  const UpTime = new Discord.RichEmbed()
+  .setColor('RED')
+  .setDescription(`
+  **==================================**
+  **Hata: ${Hata}
+  `)
+  message.channel.send() })
   }
   if(Split[0] == prefix+'yardım') {
   const RevengeNYKS = new Discord.RichEmbed()
