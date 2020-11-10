@@ -22,13 +22,14 @@ console.log(`${client.user.username} | ${db.get('Proje') || 1} Proje Hostandı`)
 }, 60000)
 
 client.on('ready', () => {
+console.log(`${client.user.username} Aktif!`)
 if(!Array.isArray(db.get('Linkler'))) {
 db.set('Linkler', [])
 }
 })
-client.on("message", async message => {
+client.on('message', async message => {
   if(message.author.bot) return;
-  var Split = message.content.split(" ")
+  var Split = message.content.split(' ')
 
 
   if(Split[0] == prefix+'ekle') {
@@ -55,24 +56,50 @@ client.on("message", async message => {
     .setTimestamp()
     .setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
     message.channel.send(Emrecan)
-    db.push("Linkler", { url: Link, owner: message.author.id})
+    db.push('Linkler', { url: Link, owner: message.author.id})
     db.add(`Sahiplik_${message.author.id}`,1)
     db.add(`Proje`,1)
+
 
   }).catch(Hata => {
   const UpTime = new Discord.RichEmbed()
   .setColor('RED')
   .setDescription(`
   **==================================**
-  **Hata: ${Hata}
+  **Hata: ${Hata} ❌**
+
+  **Lutfen Bir URL Girin**
+  ==================================
   `)
-  message.channel.send() })
+  .setImage('https://media.discordapp.net/attachments/748517679119335424/748562753253408920/IMG_20200827_192051.jpg?width=436&height=269')
+  .setTimestamp()
+  .setThumbnail(message.author.avatarURL)
+  message.channel.send(UpTime)
+  })
   }
+
+  if(Split[0] == prefix+'yardım') {
+  const Revo = new Discord.RichEmbed()
+  .setColor('#20aaba')
+  .setDescription(`
+  **==================================
+Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
+
+Ekleme Linkim
+
+Destek Sunucum
+
+Oy Vermeyi Unutma
+==================================
+**`)
+  }
+
   if(Split[0] == prefix+'yardım') {
   const RevengeNYKS = new Discord.RichEmbed()
   .setColor('CYAN')
   .setAuthor('Uptime BOT')
-  .setDescri
+  .setDescription(`sex = \n`)
+  .addField('\u200b','sadfasdf')
   .setThumbnail(message.author.avatarURL)
   message.channel.send(RevengeNYKS)
   }
@@ -145,12 +172,12 @@ message.channel.send(embed)
 }
 
 })
-client.on("message", async message => {
+client.on('message', async message => {
 
-  if(!message.content.startsWith("!eval")) return;
-  if(!["675593025468235806","sahipıd"].includes(message.author.id)) return;
-  var args = message.content.split("!eval")[1]
-  if(!args) return message.channel.send(":warning: | Kod?")
+  if(!message.content.startsWith('!eval')) return;
+  if(!['675593025468235806','sahipıd'].includes(message.author.id)) return;
+  var args = message.content.split('!eval')[1]
+  if(!args) return message.channel.send(':warning: | Kod?')
 
 const code = args
 
@@ -161,7 +188,7 @@ text = text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + S
 return text;
 };
 
-var evalEmbed = ""
+var evalEmbed = ''
 try {
 var evaled = await clean(await eval(await code));
 if (evaled.constructor.name === 'Promise') evalEmbed = `\`\`\`\n${evaled}\n\`\`\``
@@ -170,7 +197,7 @@ else evalEmbed = `\`\`\`js\n${evaled}\n\`\`\``
 if(evaled.length < 1900) { 
 message.channel.send(`\`\`\`js\n${evaled}\`\`\``);
 } else {
-var hast = await require("hastebin-gen")(evaled, { url: "https://hasteb.in" } )
+var hast = await require('hastebin-gen')(evaled, { url: 'https://hasteb.in' } )
 message.channel.send(hast)
 }
 } catch (err) {
