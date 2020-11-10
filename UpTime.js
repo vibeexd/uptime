@@ -4,7 +4,8 @@ const client = new Discord.Client({ disableEveryone: true })
 const fetch = require('node-fetch')
 const fs = require('fs')
 require('express')().listen(1343)
-
+const moment = require('moment')
+require('moment-duration-format')
 const prefix = 'lg!'
 
 setInterval(() => {
@@ -101,6 +102,19 @@ Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsi
   const Istatistik = new Discord.RichEmbed()
   .setColor('#20aaba')
   .setThumbnail(message.author.avatarURL)
+  .setTimestamp()
+  .setDescription(`
+**==================================**
+**✅ » Isim -** __${client.user.username}__
+**✅ » Kanal Sayısı -** __${client.channels.size}__
+**✅ » Sunucu Sayısı -** __${client.guilds.size}__
+**✅ » Kullanıcı Sayısı -** __${client.guilds.reduce((a,b) => a + b.memberCount,0).toLocaleString()}__
+**✅ » Link Sayısı (Sıfırlandı)-** __${await db.fetch('Proje') || 1}__
+**✅ » Premium Link Sayısı -** __31__
+**✅ » Aktiflik Suresi -** __${moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]")}__
+**==================================**
+  `)
+message.channel.send(Istatistik)
   }
 
   if(Split[0] == prefix+'yardım') {
@@ -129,7 +143,7 @@ const Ekledik = new Discord.RichEmbed()
 .setColor(0x6A3DB8)
 .setDescription(`
 ==================================
-**Yazdığınız URL Başarıyla Eklendi.** ✅
+**Yazdığınız URL Başarıyla Eklendi.** **✅
 ==================================
 `)
 .setFooter(`© ${client.user.username}`)
