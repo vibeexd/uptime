@@ -78,20 +78,29 @@ client.on('message', async message => {
   })
   }
 
-  if(Split[0] == prefix+'yardım') {
+  if(Split[0] == prefix+'davet') {
   const Revo = new Discord.RichEmbed()
   .setColor('#20aaba')
   .setDescription(`
   **==================================
 Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
 
-Ekleme Linkim
+[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)
 
-Destek Sunucum
+[Destek Sunucum](https://discord.gg/RgUhejb)
 
-Oy Vermeyi Unutma
+[Oy Vermeyi Unutma](https://top.gg/bot/${client.user.id}/vote)
 ==================================
 **`)
+  .setThumbnail(message.author.avatarURL)
+  .setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
+  message.channel.send(Revo)
+  }
+
+  if(Split[0] == prefix+'i' || prefix+'istatistik') {
+  const Istatistik = new Discord.RichEmbed()
+  .setColor('#20aaba')
+  .setThumbnail(message.author.avatarURL)
   }
 
   if(Split[0] == prefix+'yardım') {
