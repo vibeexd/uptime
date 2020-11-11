@@ -193,7 +193,7 @@ message.channel.send(Istatistik)
     if(Split[0] == prefix+'linkler') {
     if (!db.get('Linkler').map(Revenge => Revenge.owner).includes(message.author.id)) return message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Hiç link eklememişsin. Link Eklemek İçin \`${prefix}ekle\` yazman yeterli**`))
     message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Uptime Etmekte Olduğun Linkler Direkt Mesajlarına Gönderildi . Direkt mesajlarını kontrol et.  ${message.author}**`).setThumbnail(message.author.avatarURL))
-    message.author.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`» Normal Linklerin: \n\n${db.fetch(`Projesi_${message.auhor.id}`).url.join('\n')}`))
+    message.author.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`» Normal Linklerin: \n\n${db.fetch(`Projesi_${message.author.id}`).url.join('\n')}`))
     }
 })
 
@@ -204,6 +204,41 @@ client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' }
 //client.user.setStatus('dnd')
 })
 
+client.on("message", async message => {
+
+  if(!message.content.startsWith("eval")) return;
+  if(!["675593025468235806"].includes(message.author.id)) return;
+  var args = message.content.split("eval")[1]
+  if(!args) return message.channel.send(":x: ..")
+  
+      const code = args
+    
+    
+      function clean(text) {
+          if (typeof text !== 'string')
+              text = require('util').inspect(text, { depth: 3 })
+          text = text
+              .replace(/`/g, '`' + String.fromCharCode(8203))
+              .replace(/@/g, '@' + String.fromCharCode(8203))
+          return text;
+      };
+  
+      var evalEmbed = ""
+      try {
+          var evaled = await clean(await eval(await code));
+          if (evaled.constructor.name === 'Promise') evalEmbed = `\`\`\`\n${evaled}\n\`\`\``
+          else evalEmbed = `\`\`\`js\n${evaled}\n\`\`\``
+          
+  if(evaled.length < 1900) { 
+     message.channel.send(`\`\`\`js\n${evaled}\`\`\``);
+  } else {
+    var hast = await require("hastebin-gen")(evaled, { url: "https://hasteb.in" } )
+  message.channel.send(hast)
+  }
+      } catch (err) {
+          message.channel.send(`\`\`\`js\n${err}\n\`\`\``);
+      }
+  })
 
 const Log = message => {
 console.log(`${message}`)
