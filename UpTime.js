@@ -61,8 +61,6 @@ client.on('message', async message => {
     db.add(`Sahiplik_${message.author.id}`,1)
     db.push(`Projesi_${message.author.id}`,{ url: Link})
     db.add(`Proje`,1)
-
-
   }).catch(Hata => {
   const UpTime = new Discord.RichEmbed()
   .setColor('RED')
@@ -191,7 +189,7 @@ message.channel.send(Istatistik)
   }
 
     if(Split[0] == prefix+'linkler') {
-    const Linkleri = await db.fetch(`Projesi_${message.author.id}`)
+    const Linkleri = db.get(`Projesi_${message.author.id}`)
     if (!db.get('Linkler').map(Revenge => Revenge.owner).includes(message.author.id)) return message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Hiç link eklememişsin. Link Eklemek İçin \`${prefix}ekle\` yazman yeterli**`))
     message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Uptime Etmekte Olduğun Linkler Direkt Mesajlarına Gönderildi . Direkt mesajlarını kontrol et.  ${message.author}**`).setThumbnail(message.author.avatarURL))
     message.author.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**» Normal Linklerin:** \n\n`+Linkleri.url))
