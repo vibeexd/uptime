@@ -6,7 +6,7 @@ const fs = require('fs')
 require('express')().listen(1343)
 const moment = require('moment')
 require('moment-duration-format')
-const prefix = 'lg!'
+const prefix = '!'
 
 setInterval(() => {
 const Linkler = db.get('Linkler')
@@ -189,10 +189,10 @@ message.channel.send(Istatistik)
   }
 
     if(Split[0] == prefix+'linkler') {
-    const Linkleri = db.get(`Projesi_${message.author.id}`)
+    const Linkleri = db.get(`Projesi_${message.author.id}`).url
     if (!db.get('Linkler').map(Revenge => Revenge.owner).includes(message.author.id)) return message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Hiç link eklememişsin. Link Eklemek İçin \`${prefix}ekle\` yazman yeterli**`))
     message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Uptime Etmekte Olduğun Linkler Direkt Mesajlarına Gönderildi . Direkt mesajlarını kontrol et.  ${message.author}**`).setThumbnail(message.author.avatarURL))
-    message.author.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**» Normal Linklerin:** \n\n`+Linkleri.url))
+    message.author.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**» Normal Linklerin:** \n\n`+Linkleri))
     }
 })
 
