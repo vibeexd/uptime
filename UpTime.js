@@ -59,6 +59,7 @@ client.on('message', async message => {
     message.channel.send(Emrecan)
     db.push('Linkler', { url: Link, owner: message.author.id})
     db.add(`Sahiplik_${message.author.id}`,1)
+    db.push(`Projesi_${message.author.id}`,{ url: Link})
     db.add(`Proje`,1)
 
 
