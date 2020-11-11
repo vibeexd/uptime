@@ -188,7 +188,13 @@ message.channel.send(Istatistik)
 .setImage('https://cdn.discordapp.com/attachments/772568404535410748/772709523814744074/10-30-59-1a97bbf1-c434-4c74-9509-8edc074a79db_standard.gif')
   message.channel.send(HugoMugo)
   }
+
+    if(Split[0] == prefix+'linkler') {
+    if (!db.get('Linkler').map(Revenge => Revenge.owner).includes(message.author.id)) return message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Hiç link eklememişsin. Link Eklemek İçin \`ekle yazman yeterli`))
+    }
 })
+
+
 
 client.on('ready', () => {
 client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' })
