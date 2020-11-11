@@ -98,7 +98,24 @@ Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsi
   message.channel.send(Revo)
   }
 
-  if(Split[0] == prefix+'i' || prefix+'istatistik') {
+  if(Split[0] == prefix+'i') {
+  const Istatistik = new Discord.RichEmbed()
+  .setColor('#20aaba')
+  .setThumbnail(message.author.avatarURL)
+  .setTimestamp()
+  .setDescription(`
+**==================================**
+**✅ » Isim -** __${client.user.username}__
+**✅ » Kanal Sayısı -** __${client.channels.size}__
+**✅ » Sunucu Sayısı -** __${client.guilds.size}__
+**✅ » Kullanıcı Sayısı -** __${client.guilds.reduce((a,b) => a + b.memberCount,0).toLocaleString()}__
+**✅ » Link Sayısı (\`Sıfırlandı\`)-** __${await db.fetch('Proje') || 1}__
+**✅ » Premium Link Sayısı -** __31__
+**✅ » Aktiflik Suresi -** __${moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]")}__
+**==================================**`)
+message.channel.send(Istatistik)
+  }
+  if(Split[0] == prefix+'istatistik') {
   const Istatistik = new Discord.RichEmbed()
   .setColor('#20aaba')
   .setThumbnail(message.author.avatarURL)
@@ -116,17 +133,45 @@ Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsi
 message.channel.send(Istatistik)
   }
 
+  if(Split[0] == prefix+'s') {
+  const Revoş = new Discord.RichEmbed()
+  .setColor('#20aaba')
+  .setThumbnail(message.author.avatarURL)
+  .setTimestamp()
+  .setDescription(`
+  ==================================
+**» Şuanda Toplam \`${db.get('Proje')}\` URL Uptime Ediliyor ✅ (Sıfırlandı)**
+
+**» Bunlardan Sadece \`${db.fetch(`Sahiplik_${message.author.id}`) || null}\` Tanesi Senin ✅ (Sıfırlandı)**
+==================================`)
+  message.channel.send(Revoş)
+  }
   if(Split[0] == prefix+'say') {
-  message.channel.send('xasdfasdwqerqwer')
+  const Revoş = new Discord.RichEmbed()
+  .setColor('#20aaba')
+  .setThumbnail(message.author.avatarURL)
+  .setTimestamp()
+  .setDescription(`
+  ==================================
+**» Şuanda Toplam \`${db.get('Proje')}\` URL Uptime Ediliyor ✅ (Sıfırlandı)**
+
+**» Bunlardan Sadece \`${db.fetch(`Sahiplik_${message.author.id}`) || null}\` Tanesi Senin ✅ (Sıfırlandı)**
+==================================`)
+  message.channel.send(Revoş)
   }
 
   if(Split[0] == prefix+'yardım') {
   const RevengeNYKS = new Discord.RichEmbed()
-  .setColor('CYAN')
-  .setAuthor('Uptime BOT')
-  .setDescription(`sex = \n`)
-  .addField('\u200b','sadfasdf')
+  .setColor('#20aaba')
   .setThumbnail(message.author.avatarURL)
+  .setTimestamp()
+  .setAuthor(client.user.username,client.user.avatarURL)
+  .setDescription(`
+**Botumuz Uptime Ile Alakalı Bir Botdur**
+
+» Prefixim: **${prefix}**
+» Dil: **TR**
+`)
   message.channel.send(RevengeNYKS)
   }
 })
