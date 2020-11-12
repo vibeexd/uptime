@@ -194,7 +194,18 @@ message.channel.send(Istatistik)
     message.channel.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**Uptime Etmekte Olduğun Linkler Direkt Mesajlarına Gönderildi . Direkt mesajlarını kontrol et.  ${message.author}**`).setThumbnail(message.author.avatarURL))
     message.author.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**» Normal Linklerin:** \n\n\``+Linkleri.join('\n')+`\``).setThumbnail(message.author.avatarURL))
     }
+
+    if(Split[0] == prefix+'erişim-kontrol') {
+const Megenge = new Discord.RichEmbed()
+.setColor('#20aaba')
+.setThumbnail(message.author.avatarURL)
+.setTimestamp()
+.setTitle('🎈 Erişim Kontrol')
+.setDescription('**» Erişiminiz Aktif**')
+message.channel.send(Megenge)
+}
 })
+
 
 
 
