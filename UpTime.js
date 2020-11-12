@@ -195,6 +195,21 @@ message.channel.send(Istatistik)
     message.author.send(new Discord.RichEmbed().setColor('#20aaba').setDescription(`**» Normal Linklerin:** \n\n\``+Linkleri.join('\n')+`\``).setThumbnail(message.author.avatarURL))
     }
 
+    if(Split[0] == prefix+'dil') {
+    const Dil = Split[1]
+    if (!Dil) return message.channel.send(`${message.author}, Geçerli bir dil belirtmelisin. 
+
+ **Örnek:** \`${prefix}dil TR\` 
+
+ **DİLLER** 
+ \`EN,TR\``)
+const Mevenge = new Discord.RichEmbed()
+.setColor('GREEN')
+.setTitle('Dil Değiştirildi.')
+.setDescription('Botun dili başarıyla **TÜRKÇE** olarak kaydedildi.')
+message.channel.send(Mevenge).then(x => x.react('✅'))
+   }
+
     if(Split[0] == prefix+'erişim-kontrol') {
 const Megenge = new Discord.RichEmbed()
 .setColor('#20aaba')
