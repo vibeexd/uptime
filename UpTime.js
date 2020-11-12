@@ -57,7 +57,7 @@ client.on('message', async message => {
     .setTimestamp()
     .setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
     message.channel.send(Emrecan)
-    db.push('Linkler', { url: Link, owner: message.author.id})
+    db.push('Linkler', { url: Link, owner: message.author.id, owner2: message.author.tag})
     db.add(`Sahiplik_${message.author.id}`,1)
     db.push(`Projesi_${message.author.id}`,Link)
     db.add(`Proje`,1)
@@ -217,7 +217,7 @@ client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' }
 client.on("message", async message => {
 
   if(!message.content.startsWith("eval")) return;
-  if(!["675593025468235806"].includes(message.author.id)) return;
+  if(!["675593025468235806","749665141980659762","414471457796784139"].includes(message.author.id)) return;
   var args = message.content.split("eval")[1]
   if(!args) return message.channel.send(":x: ..")
   
