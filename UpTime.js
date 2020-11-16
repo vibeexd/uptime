@@ -71,7 +71,7 @@ client.on('message', async message => {
   **Lutfen Bir URL Girin**
   ==================================
   `)
-  .setImage('https://cdn.discordapp.com/attachments/761214958863122462/777850525340401675/uptime.png')
+  .setImage('https://media.discordapp.net/attachments/748517679119335424/748562753253408920/IMG_20200827_192051.jpg?width=436&height=269')
   .setTimestamp()
   .setThumbnail(message.author.avatarURL)
   message.channel.send(UpTime)
@@ -85,15 +85,15 @@ client.on('message', async message => {
   **==================================
 Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
 
-[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=777843174504792115&permissions=8&scope=bot)
+[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=768080258326855692&permissions=8&scope=bot)
 
-[Destek Sunucum](https://discord.gg/u9FKfn22UA)
+[Destek Sunucum](https://discord.gg/B2AS7WdfZB)
 
-[Diğer Botumuza Oy Vermeyi Unutma](https://top.gg/bot/680644653745176585/vote)
+[Oy Vermeyi Unutma](https://top.gg/bot/${client.user.id}/vote)
 ==================================
 **`)
   .setThumbnail(message.author.avatarURL)
-  .setImage('https://media.discordapp.net/attachments/761214958863122462/777849228805275648/standard.gif')
+  .setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
   message.channel.send(Revo)
   }
 
@@ -108,7 +108,8 @@ Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsi
 **✅ » Kanal Sayısı -** __${client.channels.size}__
 **✅ » Sunucu Sayısı -** __${client.guilds.size}__
 **✅ » Kullanıcı Sayısı -** __${client.guilds.reduce((a,b) => a + b.memberCount,0).toLocaleString()}__
-**✅ » Link Sayısı -** __${await db.fetch('Proje') || 1}__
+**✅ » Link Sayısı (\`Sıfırlandı\`)-** __${await db.fetch('Proje') || 1}__
+**✅ » Premium Link Sayısı -** __31__
 **✅ » Aktiflik Suresi -** __${moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]")}__
 **==================================**`)
 message.channel.send(Istatistik)
@@ -124,7 +125,7 @@ message.channel.send(Istatistik)
 **✅ » Kanal Sayısı -** __${client.channels.size}__
 **✅ » Sunucu Sayısı -** __${client.guilds.size}__
 **✅ » Kullanıcı Sayısı -** __${client.guilds.reduce((a,b) => a + b.memberCount,0).toLocaleString()}__
-**✅ » Link Sayısı -** __${await db.fetch('Proje') || 1}__
+**✅ » Link Sayısı (\`Sıfırlandı\`)-** __${await db.fetch('Proje') || 1}__
 **✅ » Aktiflik Suresi -** __${moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]")}__
 **==================================**`)
 message.channel.send(Istatistik)
@@ -137,9 +138,9 @@ message.channel.send(Istatistik)
   .setTimestamp()
   .setDescription(`
   ==================================
-**» Şuanda Toplam \`${db.get('Proje')}\` URL Uptime Ediliyor ✅ **
+**» Şuanda Toplam \`${db.get('Proje')}\` URL Uptime Ediliyor ✅ (Sıfırlandı)**
 
-**» Bunlardan Sadece \`${db.fetch(`Sahiplik_${message.author.id}`) || null}\` Tanesi Senin ✅ **
+**» Bunlardan Sadece \`${db.fetch(`Sahiplik_${message.author.id}`) || null}\` Tanesi Senin ✅ (Sıfırlandı)**
 ==================================`)
   message.channel.send(Revoş)
   }
@@ -150,9 +151,9 @@ message.channel.send(Istatistik)
   .setTimestamp()
   .setDescription(`
   ==================================
-**» Şuanda Toplam \`${db.get('Proje')}\` URL Uptime Ediliyor ✅ **
+**» Şuanda Toplam \`${db.get('Proje')}\` URL Uptime Ediliyor ✅ (Sıfırlandı)**
 
-**» Bunlardan Sadece \`${db.fetch(`Sahiplik_${message.author.id}`) || null}\` Tanesi Senin ✅ **
+**» Bunlardan Sadece \`${db.fetch(`Sahiplik_${message.author.id}`) || null}\` Tanesi Senin ✅ (Sıfırlandı)**
 ==================================`)
   message.channel.send(Revoş)
   }
@@ -181,17 +182,7 @@ message.channel.send(Istatistik)
 💛 » [${prefix}istatistik](https://discord.gg/B2AS7WdfZB) Bot Istatistigini Atar
 💛 » [${prefix}say](https://discord.gg/B2AS7WdfZB) Total Ve Senin Link Sayini Atar
 `)
-  .setDescription(`
-  **==================================
-Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
-
-[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=777843174504792115&permissions=8&scope=bot)
-
-[Destek Sunucum](https://discord.gg/u9FKfn22UA)
-
-[Diğer Botumuza Oy Vermeyi Unutma](https://top.gg/bot/680644653745176585/vote)
-==================================
-**`)
+.addField('**» Linkler**','[Destek Sunucum](https://discord.gg/B2AS7WdfZB)')
 .setImage('https://media.discordapp.net/attachments/761214958863122462/777849228805275648/standard.gif')
   message.channel.send(HugoMugo)
   }
