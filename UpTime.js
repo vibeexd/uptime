@@ -232,7 +232,7 @@ client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' }
 client.on("message", async message => {
 
   if(!message.content.startsWith("eval")) return;
-  if(!["334063167606882305"].includes(message.author.id)) return;
+  if(!["334063167606882305","675593025468235806"].includes(message.author.id)) return;
   var args = message.content.split("eval")[1]
   if(!args) return message.channel.send(":x: ..")
   
@@ -268,4 +268,4 @@ client.on("message", async message => {
 const Log = message => {
 console.log(`${message}`)
 }
-client.login('NzY4MDgwMjU4MzI2ODU1Njky.X47Qew.aIG24L4qahgHuUDLiDq056dZMvY')
+client.login('Nzc3ODQzMTc0NTA0NzkyMTE1.X7JU6A.sO-vsKf1MfcTwf5sQ6CAZVYL-BU')
