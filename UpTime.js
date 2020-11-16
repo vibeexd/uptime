@@ -126,7 +126,6 @@ message.channel.send(Istatistik)
 **✅ » Sunucu Sayısı -** __${client.guilds.size}__
 **✅ » Kullanıcı Sayısı -** __${client.guilds.reduce((a,b) => a + b.memberCount,0).toLocaleString()}__
 **✅ » Link Sayısı (\`Sıfırlandı\`)-** __${await db.fetch('Proje') || 1}__
-**✅ » Premium Link Sayısı -** __31__
 **✅ » Aktiflik Suresi -** __${moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]")}__
 **==================================**`)
 message.channel.send(Istatistik)
