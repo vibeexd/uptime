@@ -55,7 +55,7 @@ client.on('message', async message => {
     `)
     .addField(prefix+'linkler','Komutunu Kullanarak Ekledigin Linklere Erisebilirsin')
     .setTimestamp()
-    .setImage('https://cdn.glitch.com/0c2108ed-d2bd-4fdd-809c-8941e12c7c68%2Fstandard.gif?v=1601056779085')
+    .setImage('https://cdn.discordapp.com/attachments/761214958863122462/777849228805275648/standard.gif')
     message.channel.send(Emrecan)
     db.push('Linkler', { url: Link, owner: message.author.id, owner2: message.author.tag})
     db.add(`Sahiplik_${message.author.id}`,1)
@@ -87,7 +87,7 @@ Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsi
 
 [Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=768080258326855692&permissions=8&scope=bot)
 
-[Destek Sunucum](https://discord.gg/RgUhejb)
+[Destek Sunucum](https://discord.gg/B2AS7WdfZB)
 
 [Oy Vermeyi Unutma](https://top.gg/bot/${client.user.id}/vote)
 ==================================
@@ -171,19 +171,19 @@ message.channel.send(Istatistik)
 » Dil: **TR**
 `)
   .addField('**» Uptime Bot Komutlari**',`
-💛 » [${prefix}link-kaldır](https://discord.gg/RgUhejb) Link Kaldırmanıza Yarar
-💛 » [${prefix}ekle](https://discord.gg/RgUhejb) Link Eklemenize Yarar
-💛 » [${prefix}erişim-kontrol](https://discord.gg/RgUhejb) Erişim Kontrol
-💛 » [${prefix}linkler](https://discord.gg/RgUhejb) Liklerinizi Gösterir
+💛 » [${prefix}link-kaldır](https://discord.gg/B2AS7WdfZB) Link Kaldırmanıza Yarar
+💛 » [${prefix}ekle](https://discord.gg/B2AS7WdfZB) Link Eklemenize Yarar
+💛 » [${prefix}erişim-kontrol](https://discord.gg/B2AS7WdfZB) Erişim Kontrol
+💛 » [${prefix}linkler](https://discord.gg/B2AS7WdfZB) Liklerinizi Gösterir
 `)
   .addField('**» Genel Komutlar**',`
-💛 » [${prefix}dil](https://discord.gg/RgUhejb) Botun Dlini Ayarlar
-💛 » [${prefix}davet](https://discord.gg/RgUhejb) Botun Davet Linkini Atar
-💛 » [${prefix}istatistik](https://discord.gg/RgUhejb) Bot Istatistigini Atar
-💛 » [${prefix}say](https://discord.gg/RgUhejb) Total Ve Senin Link Sayini Atar
+💛 » [${prefix}dil](https://discord.gg/B2AS7WdfZB) Botun Dlini Ayarlar
+💛 » [${prefix}davet](https://discord.gg/B2AS7WdfZB) Botun Davet Linkini Atar
+💛 » [${prefix}istatistik](https://discord.gg/B2AS7WdfZB) Bot Istatistigini Atar
+💛 » [${prefix}say](https://discord.gg/B2AS7WdfZB) Total Ve Senin Link Sayini Atar
 `)
-.addField('**» Linkler**','[Destek Sunucum](https://discord.gg/RgUhejb)')
-.setImage('https://cdn.discordapp.com/attachments/772568404535410748/772709523814744074/10-30-59-1a97bbf1-c434-4c74-9509-8edc074a79db_standard.gif')
+.addField('**» Linkler**','[Destek Sunucum](https://discord.gg/B2AS7WdfZB)')
+.setImage('https://media.discordapp.net/attachments/761214958863122462/777849228805275648/standard.gif')
   message.channel.send(HugoMugo)
   }
 
