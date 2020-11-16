@@ -85,7 +85,7 @@ client.on('message', async message => {
   **==================================
 Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
 
-[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=768080258326855692&permissions=8&scope=bot)
+[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=777843174504792115&permissions=8&scope=bot)
 
 [Destek Sunucum](https://discord.gg/u9FKfn22UA)
 
@@ -181,7 +181,17 @@ message.channel.send(Istatistik)
 💛 » [${prefix}istatistik](https://discord.gg/B2AS7WdfZB) Bot Istatistigini Atar
 💛 » [${prefix}say](https://discord.gg/B2AS7WdfZB) Total Ve Senin Link Sayini Atar
 `)
-.addField('**» Linkler**','[Destek Sunucum](https://discord.gg/B2AS7WdfZB)')
+  .setDescription(`
+  **==================================
+Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
+
+[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=777843174504792115&permissions=8&scope=bot)
+
+[Destek Sunucum](https://discord.gg/u9FKfn22UA)
+
+[Diğer Botumuza Oy Vermeyi Unutma](https://top.gg/bot/680644653745176585/vote)
+==================================
+**`)
 .setImage('https://media.discordapp.net/attachments/761214958863122462/777849228805275648/standard.gif')
   message.channel.send(HugoMugo)
   }
