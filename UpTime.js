@@ -6,7 +6,7 @@ const fs = require('fs')
 require('express')().listen(1343)
 const moment = require('moment')
 require('moment-duration-format')
-const prefix = 'lg!'
+const prefix = 'um!'
 
 setInterval(() => {
 const Linkler = db.get('Linkler')
@@ -85,7 +85,7 @@ client.on('message', async message => {
   **==================================
 Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
 
-[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)
+[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=768080258326855692&permissions=8&scope=bot)
 
 [Destek Sunucum](https://discord.gg/RgUhejb)
 
@@ -268,4 +268,4 @@ client.on("message", async message => {
 const Log = message => {
 console.log(`${message}`)
 }
-client.login('NzM5MTk0NDcwMDYyMzU4NTc4.XyW6fw.zMidhn32tldYRlVHXHBCM3PdZLo')
+client.login('NzY4MDgwMjU4MzI2ODU1Njky.X47Qew.aIG24L4qahgHuUDLiDq056dZMvY')
