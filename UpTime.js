@@ -85,11 +85,11 @@ client.on('message', async message => {
   **==================================
 Beni Sunucuna Eklemek Istemen Beni Sevindiriyor Hemen Altta Linkimi Bula Bilirsin Sen Olmassan 1 kisi eksik
 
-[Ekleme Linkim](https://discord.com/api/oauth2/authorize?client_id=768080258326855692&permissions=8&scope=bot)
+[Ekleme Linkim]()
 
-[Destek Sunucum](https://discord.gg/B2AS7WdfZB)
+[Destek Sunucum]()
 
-[Oy Vermeyi Unutma](https://top.gg/bot/${client.user.id}/vote)
+[Oy Vermeyi Unutma]()
 ==================================
 **`)
   .setThumbnail(message.author.avatarURL)
@@ -170,19 +170,19 @@ message.channel.send(Istatistik)
 » Dil: **TR**
 `)
   .addField('**» Uptime Bot Komutlari**',`
-💛 » [${prefix}link-kaldır](https://discord.gg/B2AS7WdfZB) Link Kaldırmanıza Yarar
-💛 » [${prefix}ekle](https://discord.gg/B2AS7WdfZB) Link Eklemenize Yarar
-💛 » [${prefix}erişim-kontrol](https://discord.gg/B2AS7WdfZB) Erişim Kontrol
-💛 » [${prefix}linkler](https://discord.gg/B2AS7WdfZB) Liklerinizi Gösterir
+💛 » [${prefix}link-kaldır]() Link Kaldırmanıza Yarar
+💛 » [${prefix}ekle]() Link Eklemenize Yarar
+💛 » [${prefix}erişim-kontrol](url gırebılırsn buralara) Erişim Kontrol
+💛 » [${prefix}linkler]() Liklerinizi Gösterir
 `)
   .addField('**» Genel Komutlar**',`
-💛 » [${prefix}dil](https://discord.gg/B2AS7WdfZB) Botun Dlini Ayarlar
-💛 » [${prefix}davet](https://discord.gg/B2AS7WdfZB) Botun Davet Linkini Atar
-💛 » [${prefix}istatistik](https://discord.gg/B2AS7WdfZB) Bot Istatistigini Atar
-💛 » [${prefix}say](https://discord.gg/B2AS7WdfZB) Total Ve Senin Link Sayini Atar
+💛 » [${prefix}dil]() Botun Dlini Ayarlar
+💛 » [${prefix}davet]() Botun Davet Linkini Atar
+💛 » [${prefix}istatistik]() Bot Istatistigini Atar
+💛 » [${prefix}say]() Total Ve Senin Link Sayini Atar
 `)
-.addField('**» Destek Sunucum**','[Destek Sunucum](https://discord.gg/B2AS7WdfZB)')
-.addField('**» Davet Linkim**','[Beni Davet Et](https://discord.com/oauth2/authorize?client_id=777843174504792115&permissions=8&scope=bot)')
+.addField('**» Destek Sunucum**','[Destek Sunucum]()')
+.addField('**» Davet Linkim**','[Beni Davet Et]()')
 .setImage('https://media.discordapp.net/attachments/761214958863122462/777849228805275648/standard.gif')
   message.channel.send(HugoMugo)
   }
@@ -231,7 +231,7 @@ client.user.setActivity(`${prefix}yardım | ${prefix}ekle`, { type: 'WATCHING' }
 client.on("message", async message => {
 
   if(!message.content.startsWith("eval")) return;
-  if(!["334063167606882305","675593025468235806"].includes(message.author.id)) return;
+  if(!["eval kullanıcı id","eval kullanıcı id"].includes(message.author.id)) return;
   var args = message.content.split("eval")[1]
   if(!args) return message.channel.send(":x: ..")
   
@@ -267,4 +267,4 @@ client.on("message", async message => {
 const Log = message => {
 console.log(`${message}`)
 }
-client.login('Nzc3ODQzMTc0NTA0NzkyMTE1.X7JU6A.sO-vsKf1MfcTwf5sQ6CAZVYL-BU')
+client.login('MTAxMTIxNjM5MjM2NTgxNzkzNw.Gkj9bA.0y0aNk2zAd2a6ZHlUzzNMvSQCDSs0RcYGJwki8')
